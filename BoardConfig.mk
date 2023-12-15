@@ -25,6 +25,9 @@ TARGET_KERNEL_CONFIG := lineageos_s3ve3g_defconfig
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1
 
+# Toolchain
+KERNEL_TOOLCHAIN := /opt/toolchains/arm-eabi-4.8/bin
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
