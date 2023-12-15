@@ -20,12 +20,11 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_CUSTOM_BOOTIMG_MK :=  $(DEVICE_TREE)/mkbootimg.mk
-BOARD_KERNEL_IMAGE_NAME := zImage
-BOARD_KERNEL_DT := $(DEVICE_TREE)/prebuilt/dt.img
+TARGET_KERNEL_SOURCE := kernel/samsung/s3ve3g
+TARGET_KERNEL_CONFIG := lineageos_s3ve3g_defconfig
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom msm_rtb.filter=0x37
-TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/prebuilt/$(BOARD_KERNEL_IMAGE_NAME)
-BOARD_MKBOOTIMG_ARGS += --dt $(BOARD_KERNEL_DT)
+BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1
+
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -42,27 +41,27 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2097152000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12562627584
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
-# Properties
-TARGET_SYSTEM_PROP += $(DEVICE_TREE)/system.prop
-
 # Recovery
-BOARD_NEEDS_LZMA_MINIGZIP := true
+LZMA_RAMDISK_TARGETS := recovery
 
 # TWRP
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_QCOM_RTC_FIX := true
+TARGET_RECOVERY_FSTAB := device/samsung/jflte/recovery/root/recovery.fstab
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := 162
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_CRYPTO := true
+TW_EXCLUDE_BASH := true
+TW_EXCLUDE_TWRPAPP := true
+TW_EXCLUDE_TZDATA := true
 TW_MAX_BRIGHTNESS := 255
 TW_MTP_DEVICE := "/dev/mtp_usb"
 TW_NO_EXFAT_FUSE := true
 TW_NO_LEGACY_PROPS := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_THEME := portrait_hdpi
-
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
+TW_FORCE_USE_BUSYBOX := true
+ALLOW_MISSING_DEPENDENCIES := true
