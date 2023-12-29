@@ -21,7 +21,7 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_CUSTOM_BOOTIMG_MK :=  $(DEVICE_TREE)/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/samsung/s3ve3g
-TARGET_KERNEL_CONFIG := lineageos_s3ve3g_defconfig
+TARGET_KERNEL_CONFIG := recovery_s3ve3g_defconfig
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1
 
