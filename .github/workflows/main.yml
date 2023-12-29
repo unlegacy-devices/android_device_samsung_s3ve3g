@@ -30,11 +30,11 @@ jobs:
           python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --depth=1 --branch android-7.1.2_r38 --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8 /opt/toolchains/arm-eabi-4.8
           git clone --depth=1 --branch android-7.1 --single-branch https://github.com/unlegacy-devices/android_device_samsung_s3ve3g.git device/samsung/s3ve3g
-          git clone --depth=1 --branch lineage-14.1 --single-branch https://github.com/S3NEO/android_kernel_samsung_s3ve3g.git kernel/samsung/s3ve3g
+          git clone --depth=1 --branch lineage-14.1 --single-branch https://github.com/NotNoelChannel/android_kernel_samsung_s3ve3g/ kernel/samsung/s3ve3g
       - name: Building OFRP
         run: |
           OLDPATH=$PATH
-           OLDJAVAHOME=$JAVA_HOME
+          OLDJAVAHOME=$JAVA_HOME
           export PATH="$HOME/.jdk_7/java-se-7u75-ri/bin:$PATH"
           export JAVA_HOME="$HOME/.jdk_7/java-se-7u75-ri"
           cd ~/OFRP
