@@ -45,6 +45,7 @@ jobs:
           export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
           export OF_LEGACY_SHAR512=1
           export FOX_USE_LZMA_COMPRESSION=1
+          export FOX_DRASTIC_SIZE_REDUCTION=1
           export FOX_REMOVE_AAPT=1
           export OF_DISABLE_KEYMASTER2=1
           lunch omni_s3ve3g-eng
