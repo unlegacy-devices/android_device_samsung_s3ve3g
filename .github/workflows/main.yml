@@ -26,7 +26,7 @@ jobs:
           cd ~/OFRP
           mkdir ~/.bin
           curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
-          python3 ~/.bin/repo init --depth=1 -u https://github.com/unlegacy-devices/fox-6.0_manifest.git -b fox_6.0
+          python3 ~/.bin/repo init --depth=1 -u https://github.com/unlegacy-devices/fox-7.1_manifest.git -b twrp-7.1
           python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --depth=1 --branch android-7.1.2_r38 --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8 /opt/toolchains/arm-eabi-4.8
           git clone --depth=1 --branch android-7.1 --single-branch https://github.com/unlegacy-devices/android_device_samsung_s3ve3g.git device/samsung/s3ve3g
@@ -45,7 +45,6 @@ jobs:
           export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
           export OF_LEGACY_SHAR512=1
           export FOX_USE_LZMA_COMPRESSION=1
-          export FOX_DRASTIC_SIZE_REDUCTION=1
           export FOX_REMOVE_AAPT=1
           export OF_DISABLE_KEYMASTER2=1
           lunch omni_s3ve3g-eng
